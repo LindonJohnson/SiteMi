@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instalação de Ar-Condicionado - Vicentina MS</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #1a237e 0%, #0d47a1 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 600px;
+            width: 100%;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .hero-section {
+            background: linear-gradient(135deg, #1a237e 0%, #0d47a1 100%);
+            padding: 40px 30px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+        
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .ac-unit {
+            width: 180px;
+            height: 120px;
+            background: linear-gradient(145deg, #f5f5f5, #e0e0e0);
+            border-radius: 15px;
+            margin: 0 auto 30px;
+            position: relative;
+            box-shadow: 
+                inset 5px 5px 15px #d1d1d1,
+                inset -5px -5px 15px #ffffff,
+                0 10px 20px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+        
+        .ac-unit::before {
+            content: '';
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            right: 15px;
+            height: 8px;
+            background: linear-gradient(90deg, #333 0%, #666 50%, #333 100%);
+            border-radius: 4px;
+        }
+        
+        .ac-unit::after {
+            content: '';
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            right: 20px;
+            height: 40px;
+            background: linear-gradient(90deg, 
+                transparent 0%, 
+                rgba(100,200,255,0.3) 20%, 
+                rgba(100,200,255,0.6) 40%, 
+                rgba(100,200,255,0.3) 60%, 
+                transparent 80%
+            );
+            border-radius: 20px;
+            animation: coolAir 2s ease-in-out infinite;
+        }
+        
+        @keyframes coolAir {
+            0%, 100% { opacity: 0.3; transform: scaleY(0.8); }
+            50% { opacity: 0.8; transform: scaleY(1.2); }
+        }
+        
+        .fire-emoji {
+            font-size: .8em;
+            display: inline-block;
+            animation: fireDown 2s ease-in-out infinite;
+            margin: 0 1px;
+        }
+        
+        @keyframes fireDown {
+            0%, 100% { transform: translateY(0px) rotate(-5deg); }
+            50% { transform: translateY(15px) rotate(5deg); }
+        }
+        
+        .main-title {
+            color: white;
+            font-size: 2.8em;
+            font-weight: 800;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            z-index: 1;
+            position: relative;
+        }
+        
+        .subtitle {
+            color: #e3f2fd;
+            font-size: 1.3em;
+            font-weight: 600;
+            margin-bottom: 30px;
+            line-height: 1.4;
+            z-index: 1;
+            position: relative;
+            text-transform: uppercase;
+        }
+        
+        .content-section {
+            padding: 40px 30px;
+        }
+        
+        .benefits {
+            margin-bottom: 35px;
+        }
+        
+        .benefit-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            font-size: 1.1em;
+            color: #333;
+            font-weight: 500;
+        }
+        
+        .check-icon {
+            width: 28px;
+            height: 28px;
+            background: linear-gradient(135deg, #ff6f00, #ff8f00);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            flex-shrink: 0;
+            box-shadow: 0 4px 8px rgba(255,111,0,0.3);
+        }
+        
+        .check-icon::after {
+            content: '✓';
+            color: white;
+            font-weight: bold;
+            font-size: 0.9em;
+        }
+        
+        .cta-button {
+            background: linear-gradient(135deg, #ff6f00, #ff8f00);
+            color: white;
+            padding: 18px 35px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.3em;
+            font-weight: 700;
+            text-transform: uppercase;
+            cursor: pointer;
+            width: 100%;
+            margin-bottom: 25px;
+            box-shadow: 0 8px 25px rgba(255,111,0,0.4);
+            transition: all 0.3s ease;
+            animation: pulse 2s infinite;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); box-shadow: 0 8px 25px rgba(255,111,0,0.4); }
+            50% { transform: scale(1.05); box-shadow: 0 12px 35px rgba(255,111,0,0.6); }
+            100% { transform: scale(1); box-shadow: 0 8px 25px rgba(255,111,0,0.4); }
+        }
+        
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s;
+        }
+        
+        .cta-button:hover::before {
+            left: 100%;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 35px rgba(255,111,0,0.5);
+        }
+        
+        .urgency {
+            text-align: center;
+            background: linear-gradient(135deg, #d32f2f, #f57c00);
+            color: white;
+            padding: 15px;
+            font-size: 1.5em;
+            font-weight: 600;
+            animation: blink 1.5s ease-in-out infinite alternate;
+        }
+        
+        @keyframes blink {
+            0% { opacity: 0.8; }
+            100% { opacity: 1; }
+        }
+        
+        .location {
+            background: #f8f9fa;
+            padding: 20px 30px;
+            text-align: center;
+            border-top: 3px solid #ff8f00;
+        }
+        
+        .location-title {
+            color: #1a237e;
+            font-weight: 700;
+            margin-bottom: 8px;
+            font-size: 1.1em;
+        }
+        
+        .location-text {
+            color: #666;
+            font-size: 1em;
+            line-height: 1.4;
+        }
+        
+        .whatsapp-icon {
+            display: inline-block;
+            margin-right: 8px;
+            font-size: 1.2em;
+        }
+        
+        @media (max-width: 480px) {
+            .container {
+                margin: 10px;
+            }
+            
+            .hero-section {
+                padding: 30px 20px;
+            }
+            
+            .main-title {
+                font-size: 2.2em;
+            }
+            
+            .subtitle {
+                font-size: 1.1em;
+            }
+            
+            .content-section {
+                padding: 30px 20px;
+            }
+            
+            .location {
+                padding: 15px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="hero-section">
+            <div class="ac-unit"></div>
+            <h1 class="main-title">
+                <span class="fire-emoji">🔥</span>
+                CHEGA DE CALOR!
+                <span class="fire-emoji">🔥</span>
+            </h1>
+            <p class="subtitle">
+                Instalamos seu ar condicionado com segurança e qualidade!!!
+            </p>
+        </div>
+        
+        <div class="content-section">
+            <div class="benefits">
+                <div class="benefit-item">
+                    <div class="check-icon"></div>
+                    <span>⁠Instalação rápida, fácil e eficiente. Garantimos qualidade!</span>
+                </div>
+                <div class="benefit-item">
+                    <div class="check-icon"></div>
+                    <span>Profissionais competentes</span>
+                </div>
+                <div class="benefit-item">
+                    <div class="check-icon"></div>
+                    <span>Ambientes frescos rapidamente</span>
+                </div>
+            </div>
+            
+            <button class="cta-button" onclick="window.open('https://wa.me/5567999999999?text=Olá! Gostaria de agendar a instalação do meu ar-condicionado.', '_blank')">
+                <span class="whatsapp-icon">📱</span>
+                CLIQUE AGORA E AGENDE PELO WHATSAPP!
+            </button>
+        </div>
+        
+        <div class="urgency">
+            ⚠️ Vagas limitadas para esta semana! ⚠️
+        </div>
+        
+        <div class="location">
+            <div class="location-title"></div>
+            <div class="location-text">
+                <strong>📍Vicentina e região/Mato Grosso do Sul</strong><br>
+                <strong>📱(67) 99178-8925</strong><br>
+                    
+            </div>
+        </div>
+    </div>
+</body>
+</html>
